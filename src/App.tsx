@@ -3,6 +3,7 @@ import './App.css';
 import Project from './pages/Project';
 import Education from './pages/Education';
 import Experience from './pages/Experience';
+import Summary from './components/Summary';
 
 function App() {
   const [activeTab, setActiveTab] = useState('experience');
@@ -13,28 +14,7 @@ function App() {
 
       <main className="main-content">
         {/* HERO SECTION */}
-        <header className="hero-section">
-          <div className="hero-layout">
-            <div className="profile-circle">
-              <img src="https://via.placeholder.com/400" alt="Chan Min Swe" />
-            </div>
-            <div className="hero-info">
-              <h1 className="name-title">CHAN MIN SWE</h1>
-              <p className="sub-title">CROSS PLATFORM MOBILE DEVELOPER</p>
-              
-              <div className="meta-cards">
-                <div className="meta-card">📍 Yangon, Myanmar</div>
-                <div className="meta-card">✉️ chanswe67@gmail.com</div>
-                <div className="meta-card">📞 09-966650850</div>
-              </div>
-
-              <p className="bio-text">
-                Specializing in <strong>React Native</strong> performance. I build high-efficiency 
-                internal operations tools with robust state management and native integrations.
-              </p>
-            </div>
-          </div>
-        </header>
+        <Summary />
 
         {/* TAB NAVIGATION - Positioned right below summary */}
         <nav className="tab-navigation">

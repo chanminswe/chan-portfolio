@@ -9,7 +9,7 @@ function Experience() {
       description: "Sole developer building a production-ready internal HR operations application using React Native (Expo).",
       achievements: [
         "Implemented real-time employee attendance system using GPS location tracking.",
-        "Optimized performance using React Query caching, reducing loading time by ~1.3s.",
+        "Optimized performance using React Query caching",
         "Integrated native device capabilities including camera, image gallery, and push notifications.",
         "Handled Android production builds and iOS distribution via TestFlight."
       ],
@@ -25,8 +25,20 @@ function Experience() {
         "Resolved technical issues arising during exams efficiently.",
         "Managed staff and schedules to prevent disruptions during holidays and exam periods."
       ],
-      tech: ["Operations", "Team Management", "Technical Support"]
-    }
+      tech: ["Operations", "Team Management", "Technical Support" ]
+    },
+   {
+      title: "Programming Mentor ( Part Time )",
+      company: "Myanmar Technopreneur Association",
+      period: "Oct 2022 — Jan 2025",
+      description: "Managed technical operations and coordinated with international teams for exam execution.",
+      achievements: [
+        "Mentored students in practical React, HTML, and CSS through hands-on project builds.",
+        "Reviewed code and guided students on state management and component architecture.",
+        "Built Mini Projects for students"
+      ],
+      tech: ["React", "State Management", "Frontend Architecture", "Technical Mentorship",]
+    },
   ];
 
   return (
