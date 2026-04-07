@@ -36,7 +36,7 @@ function App() {
             Projects
           </button>
          <button 
-            className={activeTab === 'projects' ? 'tab-btn active' : 'tab-btn'} 
+            className={activeTab === 'contactme' ? 'tab-btn active' : 'tab-btn'} 
             onClick={() => setActiveTab('contactme')}
           >
             Contact Me
@@ -56,8 +56,7 @@ function App() {
             <Project />
           )}
 
-          {
-            activeTab === 'contactme' && (
+          {activeTab === 'contactme' && (
                 <ContactMe />
             )}
         </section>

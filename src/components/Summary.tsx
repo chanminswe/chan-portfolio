@@ -1,5 +1,6 @@
 import '../styles/summary.css';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import profileImg from '/image.webp';
 
 function Summary() {
   return (
@@ -7,7 +8,7 @@ function Summary() {
       <header className="hero-section-inline">
         <div className="hero-layout">
           <div className="profile-circle">
-            <img src="/image.webp" alt="Chan Min Swe" />
+            <img src={profileImg} alt="Chan Min Swe" />
           </div>
 
           <div className="hero-info">
