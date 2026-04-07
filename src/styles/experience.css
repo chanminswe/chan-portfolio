@@ -3,7 +3,7 @@
   max-width: 900px;
   margin: 0 auto;
   color: #ffffff;
-  text-align: left; /* Ensuring everything is left-aligned */
+  text-align: left;
 }
 
 .exp-block {
@@ -104,25 +104,22 @@
   margin-top: 16px;
 }
 
-/* New Tech Tag Style */
 .tech-tag {
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.3px;
   padding: 6px 14px;
-  border-radius: 8px; /* Squircle/Modern look instead of pill */
+  border-radius: 8px; 
   
-  /* Glassmorphism base */
   background: rgba(167, 139, 250, 0.05); 
   border: 1px solid rgba(167, 139, 250, 0.15);
-  color: #c4b5fd; /* Soft purple */
+  color: #c4b5fd; 
   
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   backdrop-filter: blur(4px);
   cursor: default;
 }
 
-/* Glow Effect on Hover */
 .tech-tag:hover {
   background: rgba(167, 139, 250, 0.12);
   border-color: #a78bfa;

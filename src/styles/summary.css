@@ -14,7 +14,7 @@
 .social-links-inline {
   display: flex;
   gap: 15px;
-  padding-top: 12px; /* Adjust this to vertically center with the name text */
+  padding-top: 12px;
 }
 
 .social-links-inline a {
@@ -23,11 +23,10 @@
 }
 
 .social-links-inline a:hover {
-  color: #a78bfa; /* Matches your purple sub-title color */
+  color: #a78bfa;
   transform: translateY(-2px);
 }
 
-/* Mobile Adjustment */
 @media (max-width: 768px) {
   .title-row {
     flex-direction: column;

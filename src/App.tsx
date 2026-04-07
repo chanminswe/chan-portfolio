@@ -14,10 +14,8 @@ function App() {
       <div className="radial-glow-top"></div>
 
       <main className="main-content">
-        {/* HERO SECTION */}
         <Summary />
 
-        {/* TAB NAVIGATION - Positioned right below summary */}
         <nav className="tab-navigation">
           <button 
             className={activeTab === 'experience' ? 'tab-btn active' : 'tab-btn'} 
@@ -45,7 +43,6 @@ function App() {
           </button>
         </nav>
 
-        {/* TAB CONTENT AREA */}
         <section className="content-area">
           {activeTab === 'experience' && (
             <Experience />

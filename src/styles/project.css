@@ -73,7 +73,6 @@
   font-weight: bold;
 }
 
-/* iPhone Mockup Styling */
 .project-visual {
   flex: 1;
   display: flex;
@@ -115,7 +114,6 @@
   object-fit: cover;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .project-layout {
     flex-direction: column;
