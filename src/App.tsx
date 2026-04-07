@@ -1,115 +1,131 @@
-import { useState } from 'react'
-import './App.css'
+import { useState } from 'react';
+import './App.css';
+import Project from './pages/Project';
+import Education from './pages/Education';
 
 function App() {
-  const [activeView, setActiveView] = useState('summary')
+  const [activeTab, setActiveTab] = useState('experience');
+
+  const experiences = [
+    {
+      title: "Cross Platform Mobile Developer",
+      company: "Hana Microfinance Myanmar",
+      period: "Feb 2025 — Present",
+      description: "Sole developer building a production-ready internal HR operations application using React Native (Expo).",
+      achievements: [
+        "Implemented real-time employee attendance system using GPS location tracking.",
+        "Optimized performance using React Query caching, reducing loading time by ~1.3s.",
+        "Integrated native device capabilities (camera, biometric, push notifications).",
+        "Handled Android production builds and iOS distribution via TestFlight."
+      ],
+      tech: ["React Native", "Expo", "React Query", "Sentry", "PHP"]
+    },
+    {
+      title: "Head of Exam Centers",
+      company: "Linux Lab",
+      period: "March 2023 — Jan 2025",
+      description: "Managed technical operations and coordinated with international teams for exam execution.",
+      tech: ["Operations", "Team Management", "Technical Support"]
+    }
+  ];
 
   return (
     <div className="portfolio-container">
-      {/* Top Section: Profile Header */}
-      <header className="hero-header">
-        <div className="profile-wrapper">
-          <div className="profile-circle">
-            <img src="https://via.placeholder.com/300" alt="Profile Placeholder" />
-          </div>
-          <div className="header-text">
-            <h1>CHAN MIN</h1>
-            <p className="role-title">Cross-Platform Mobile Developer [cite: 3, 6]</p>
-            <div className="location-tags">
-              <span className="tag-box">📍 Yangon, Myanmar [cite: 5]</span>
-              <span className="tag-box">💼 Open to Projects [cite: 8]</span>
-            </div>
-            
-            <p className="bio-text">
-              I'm a mobile developer specializing in <strong>React Native</strong> and 
-              modern architecture[cite: 6]. I've built and shipped internal HR 
-              solutions for attendance, approvals, and workflows[cite: 7, 24].
-            </p>
+      <div className="radial-glow-top"></div>
 
-            <div className="looking-for">
-              <h3>Looking For</h3>
-              <ul>
-                <li>→ Projects [cite: 8]</li>
-                <li>→ Mobile Development Roles [cite: 23]</li>
-                <li>→ Full-stack Opportunities [cite: 19]</li>
-              </ul>
+      <main className="main-content">
+        {/* HERO SECTION */}
+        <header className="hero-section">
+          <div className="hero-layout">
+            <div className="profile-circle">
+              <img src="https://via.placeholder.com/400" alt="Chan Min Swe" />
+            </div>
+            <div className="hero-info">
+              <h1 className="name-title">CHAN MIN SWE</h1>
+              <p className="sub-title">CROSS PLATFORM MOBILE DEVELOPER</p>
+              
+              <div className="meta-cards">
+                <div className="meta-card">📍 Yangon, Myanmar</div>
+                <div className="meta-card">✉️ chanswe67@gmail.com</div>
+                <div className="meta-card">📞 09-966650850</div>
+              </div>
+
+              <p className="bio-text">
+                Specializing in <strong>React Native</strong> performance. I build high-efficiency 
+                internal operations tools with robust state management and native integrations.
+              </p>
             </div>
           </div>
-        </div>
-      </header>
+        </header>
 
-      {/* Bottom Section: The Project/Detail Switcher */}
-      <section className="project-split-view">
-        <div className="view-left">
-          <div className="switcher-nav">
-            <button 
-              className={activeView === 'summary' ? 'active' : ''} 
-              onClick={() => setActiveView('summary')}
-            >
-              Summary
-            </button>
-            <button 
-              className={activeView === 'tech' ? 'active' : ''} 
-              onClick={() => setActiveView('tech')}
-            >
-              Technologies
-            </button>
-          </div>
+        {/* TAB NAVIGATION - Positioned right below summary */}
+        <nav className="tab-navigation">
+          <button 
+            className={activeTab === 'experience' ? 'tab-btn active' : 'tab-btn'} 
+            onClick={() => setActiveTab('experience')}
+          >
+            Experience
+          </button>
+          <button 
+            className={activeTab === 'education' ? 'tab-btn active' : 'tab-btn'} 
+            onClick={() => setActiveTab('education')}
+          >
+            Education
+          </button>
+          <button 
+            className={activeTab === 'projects' ? 'tab-btn active' : 'tab-btn'} 
+            onClick={() => setActiveTab('projects')}
+          >
+            Projects
+          </button>
+        </nav>
 
-          <div className="scroll-content">
-            {activeView === 'summary' ? (
-              <div className="fade-in">
-                <h2>Internal HR Operations App</h2>
-                <p className="project-desc">
-                  A comprehensive solution for corporate workflows including 
-                  real-time employee attendance using <strong>GPS tracking</strong>[cite: 25], 
-                  multi-level approval workflows [cite: 26], and native device integrations[cite: 27].
-                </p>
-                <div className="experience-snip">
-                  <span className="company">Hana Microfinance [cite: 22]</span>
-                  <span className="duration">2026 - Present [cite: 23]</span>
-                </div>
-              </div>
-            ) : (
-              <div className="fade-in">
-                <h2>Technical Stack [cite: 13]</h2>
-                <div className="tech-grid">
-                  <div className="tech-card">
-                    <h4>Frontend [cite: 14]</h4>
-                    <p>React Native, TypeScript, Expo, React</p>
+        {/* TAB CONTENT AREA */}
+        <section className="content-area">
+          {activeTab === 'experience' && (
+            <div className="tab-view fade-in">
+              {experiences.map((exp, i) => (
+                <div key={i} className="exp-block">
+                  <div className="exp-visual">
+                    <div className="exp-dot"></div>
+                    <div className="exp-line"></div>
                   </div>
-                  <div className="tech-card">
-                    <h4>State & Data [cite: 15]</h4>
-                    <p>React Query, Redux, SQLite, AsyncStorage</p>
-                  </div>
-                  <div className="tech-card">
-                    <h4>Backend [cite: 15]</h4>
-                    <p>Node.js, Express, MongoDB, PHP, Odoo</p>
-                  </div>
-                  <div className="tech-card">
-                    <h4>DevOps [cite: 16, 31]</h4>
-                    <p>TestFlight, Android Production, Power Automate</p>
+                  <div className="exp-content">
+                    <div className="exp-header">
+                      <h3>{exp.title}</h3>
+                      <span className="date-text">{exp.period}</span>
+                    </div>
+                    <p className="company-text">{exp.company}</p>
+                    <p className="description-text">{exp.description}</p>
+                    {exp.achievements && (
+                      <div className="achievement-list">
+                        {exp.achievements.map((a, j) => <p key={j}>· {a}</p>)}
+                      </div>
+                    )}
+                    <div className="tag-row">
+                      {exp.tech.map(t => <span key={t} className="tech-tag">{t}</span>)}
+                    </div>
                   </div>
                 </div>
-              </div>
-            )}
-          </div>
-        </div>
+              ))}
+            </div>
+          )}
 
-        <div className="view-right">
-          <div className="phone-mockup">
-            <video 
-              autoPlay 
-              loop 
-              muted 
-              playsInline
-              src="/Simulator Screen Recording - iPhone 17 Pro - 2026-04-06 at 20.11.55 (1).mov"
-            />
-          </div>
-        </div>
-      </section>
+          {activeTab === 'education' && (
+            <Education />
+          )}
+
+          {activeTab === 'projects' && (
+            <Project />
+          )}
+        </section>
+      </main>
+
+      <footer className="footer">
+        <p>CHAN MIN SWE © 2026</p>
+      </footer>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
