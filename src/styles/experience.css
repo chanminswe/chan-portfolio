@@ -96,24 +96,39 @@
   font-weight: bold;
 }
 
+/* Container spacing */
 .tag-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
+  margin-top: 16px;
 }
 
+/* New Tech Tag Style */
 .tech-tag {
-  font-size: 13px;
-  padding: 6px 16px;
-  border-radius: 25px;
-  border: 1px solid #ffffff;
-  color: #ffffff;
-  background: transparent;
-  transition: all 0.2s ease-in-out;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  padding: 6px 14px;
+  border-radius: 8px; /* Squircle/Modern look instead of pill */
+  
+  /* Glassmorphism base */
+  background: rgba(167, 139, 250, 0.05); 
+  border: 1px solid rgba(167, 139, 250, 0.15);
+  color: #c4b5fd; /* Soft purple */
+  
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(4px);
+  cursor: default;
 }
 
+/* Glow Effect on Hover */
 .tech-tag:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(167, 139, 250, 0.12);
+  border-color: #a78bfa;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(167, 139, 250, 0.2);
 }
 
 .fade-in {

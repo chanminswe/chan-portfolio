@@ -4,6 +4,7 @@ import Project from './pages/Project';
 import Education from './pages/Education';
 import Experience from './pages/Experience';
 import Summary from './components/Summary';
+import ContactMe from './pages/ContactMe';
 
 function App() {
   const [activeTab, setActiveTab] = useState('experience');
@@ -36,6 +37,12 @@ function App() {
           >
             Projects
           </button>
+         <button 
+            className={activeTab === 'projects' ? 'tab-btn active' : 'tab-btn'} 
+            onClick={() => setActiveTab('contactme')}
+          >
+            Contact Me
+          </button>
         </nav>
 
         {/* TAB CONTENT AREA */}
@@ -51,6 +58,11 @@ function App() {
           {activeTab === 'projects' && (
             <Project />
           )}
+
+          {
+            activeTab === 'contactme' && (
+                <ContactMe />
+            )}
         </section>
       </main>
 

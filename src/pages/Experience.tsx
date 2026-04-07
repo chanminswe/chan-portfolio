@@ -13,7 +13,7 @@ function Experience() {
         "Integrated native device capabilities including camera, image gallery, and push notifications.",
         "Handled Android production builds and iOS distribution via TestFlight."
       ],
-      tech: ["React Native", "Expo", "React Query", "Sentry", "PHP"]
+      tech: ["React Native", "Expo","EAS" , "React Query",  "Zustand" , "PHP" , ]
     },
     {
       title: "Head of Exam Centers",
