@@ -1,4 +1,4 @@
-import React from 'react';
+import '../styles/experience.css';
 
 function Experience() {
   const experiences = [
@@ -26,16 +26,6 @@ function Experience() {
         "Managed staff and schedules to prevent disruptions during holidays and exam periods."
       ],
       tech: ["Operations", "Team Management", "Technical Support"]
-    },
-    {
-      title: "Part time Teacher",
-      company: "Myanmar Technopreneur Association",
-      period: "Oct 2022 — March 2025",
-      description: "Mentored students in React, HTML, and CSS through hands-on project builds.",
-      achievements: [
-        "Reviewed code and guided students on state management and component architecture."
-      ],
-      tech: ["React", "HTML/CSS", "Mentorship"]
     }
   ];
 
@@ -45,21 +35,25 @@ function Experience() {
         <div key={i} className="exp-block">
           <div className="exp-visual">
             <div className="exp-dot"></div>
-            {/* Don't render the line for the very last item */}
             {i !== experiences.length - 1 && <div className="exp-line"></div>}
           </div>
           <div className="exp-content">
             <div className="exp-header">
-              <h3>{exp.title}</h3>
+              <div className="title-wrapper">
+                <h3>{exp.title}</h3>
+                <span className="company-text">{exp.company}</span>
+              </div>
               <span className="date-text">{exp.period}</span>
             </div>
-            <p className="company-text">{exp.company}</p>
+            
             <p className="description-text">{exp.description}</p>
             
             {exp.achievements && (
               <div className="achievement-list">
                 {exp.achievements.map((a, j) => (
-                  <p key={j} className="achievement-item">· {a}</p>
+                  <p key={j} className="achievement-item">
+                    <span className="bullet">·</span> {a}
+                  </p>
                 ))}
               </div>
             )}
