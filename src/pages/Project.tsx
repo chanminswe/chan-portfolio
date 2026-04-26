@@ -1,44 +1,30 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import '../styles/project.css';
 import HmfProject from '../components/HmfProject';
+import KyatFlowProject from '../components/KyatFlowProject';
 
 function Project() {
-    const [isVisible, setIsVisible] = useState(false);
-    const [projects , setProjects] = useState([0 , 1]);
-    const [currentProject , setCurrentProject] = useState(0);
-    const videoRef = useRef(null);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsVisible(true);
-                    observer.disconnect();
-                }
-            },
-            { threshold: 0.1 }
-        );
-
-        if (videoRef.current) {
-            observer.observe(videoRef.current);
-        }
-
-        return () => observer.disconnect();
-    }, []);
+    const [currentProject, setCurrentProject] = useState(0);
 
     return (
-        <div className="tab-view fade-in project-layout" ref={videoRef}>
-            {currentProject === 1 && <button className="nav-button left">
-                {"<"}
-            </button>}
-            
-            {currentProject === 0 &&  <HmfProject isVisible={isVisible} /> }
-            
-            {currentProject === 1  }
+        <div className="tab-view fade-in project-main-wrapper">
+            <div className="nav-button-container">
+                {currentProject === 1 && (
+                    <button onClick={() => setCurrentProject(0)} className="nav-button">
+                        {"<"}
+                    </button>
+                )}
+            </div>
 
-            {currentProject === 0 && <button className="nav-button right">
-                {">"}
-            </button>}
+            {currentProject === 0 ? <HmfProject /> : <KyatFlowProject />}
+
+            <div className="nav-button-container">
+                {currentProject === 0 && (
+                    <button onClick={() => setCurrentProject(1)} className="nav-button">
+                        {">"}
+                    </button>
+                )}
+            </div>
         </div>
     );
 }

@@ -1,15 +1,33 @@
+import { useState, useEffect, useRef } from 'react';
 import '../styles/project.css';
 import hrDemoVideo from '/hmf.mov';
 import hrImagePreview from '/preview.png';
 
-type HMFProjectProps = {
-    isVisible : boolean;
-}
+function HmfProject() {
+  const [isVisible, setIsVisible] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-function HmfProject({isVisible} : HMFProjectProps) {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <>
-    <div className="project-text">
+    <div className="project-layout" ref={containerRef}>
+      <div className="project-text">
         <div className="project-badge">0 → 1 Full Ownership</div>
         <h3>Hana HR Operations Suite</h3>
         <p className="project-intro">
@@ -44,7 +62,7 @@ function HmfProject({isVisible} : HMFProjectProps) {
           <span className="tech-tag">Expo</span>
           <span className="tech-tag">React Query</span>
           <span className="tech-tag">Zustand</span>
-           <span className="tech-tag">Sentry</span>
+          <span className="tech-tag">Sentry</span>
         </div>
       </div>
 
@@ -52,27 +70,29 @@ function HmfProject({isVisible} : HMFProjectProps) {
         <div className="phone-mockup">
           <div className="phone-speaker"></div>
           <div className="phone-screen">
-            <video 
-              autoPlay 
-              loop 
-              muted 
-              playsInline 
-              poster={hrImagePreview}
-              className={`fade-in ${isVisible ? 'playing' : 'stopped'}`}
-              src={isVisible ? hrDemoVideo : ""}
-              style={{ 
-                width: '100%', 
-                height: '100%', 
-                objectFit: 'cover',
-                display: 'block' 
-              }}
-            />
+            {isVisible && (
+              <video 
+                autoPlay 
+                loop 
+                muted 
+                playsInline 
+                poster={hrImagePreview}
+                className="fade-in playing"
+                src={hrDemoVideo}
+                style={{ 
+                  width: '100%', 
+                  height: '100%', 
+                  objectFit: 'cover',
+                  display: 'block' 
+                }}
+              />
+            )}
           </div>
           <div className="phone-button"></div>
         </div>
       </div>
-    </>
-  )
+    </div>
+  );
 }
 
-export default HmfProject
+export default HmfProject;
