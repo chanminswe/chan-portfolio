@@ -35,7 +35,7 @@ function Summary() {
             </div>
 
             <p className="bio-text">
-              I’m a <strong>React Native</strong> developer focused on building fast apps while maintaining readable and clean code.
+              <strong>React Native Engineer</strong> focused on building fluid, scalable mobile apps through clean architecture and optimized code
             </p>
           </div>
         </div>

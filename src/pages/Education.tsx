@@ -9,6 +9,7 @@ function Education() {
             location: "Myanmar",
             details: [
                 "Advanced Certificate in IT (Software Engineering)",
+                "Advanced Certificate in IT (Software Engineering)",
                 "Honors Diploma in IT (Software Engineering)"
             ]
         },
@@ -22,7 +23,7 @@ function Education() {
             ]
         },
         {
-            title: "React Native Development",
+            title: "React Native Development Certificate",
             institution: "Coursera / Board Infinity",
             period: "Issued Mar 2025",
             details: [
